@@ -46,6 +46,11 @@ Dashboard TAB--> 1.live passive
 
 wireshark---------------------------------------------
 
-ip.src == 0.0.0.0
-https/dns/smtp (protocol filer)
-ip.dst == 0.0.0.0
+ip.src == 192.168.0.0 using for filter source addresses of IP address
+ip.dst == 192.168.0.0 using for filter destination addresses of IP address
+http - using for filter protocols
+http||tcp - OR condition in filter(HTTP or TCP)
+http&&ip.src == 192.168.0.0 AND condition in filtering
+tcp.port eq 80 - filter by port number and port name
+tcp contains 01:01:04 - match the packets contain a particular sequence
+ip.dst !=192.168.0.0 - Reject the packets based on source
